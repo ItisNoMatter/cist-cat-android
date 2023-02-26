@@ -1,11 +1,14 @@
 # CIST:CaT
 
 CIST:ComfortAble Toolkit(仮称) は、CIST生の学生生活をより便利にするためのアプリケーションです。
+# デザイン
+[figma](https://www.figma.com/file/CAmHMszaXS6yp6yC0P7yZT/cist-cat?node-id=9%3A31&t=fA6w7IoLSzg6tKve-1)を参考に実装を進めてください。
 ![mock](https://user-images.githubusercontent.com/41831807/219938781-83d66e09-8fad-45c1-936a-d9281116d446.png)
 
 # このリポジトリについて
 ここでは、anndroid端末でのフロントエンドの構築を行います。
 バックエンドの開発は別のレポジトリで行います。
+
 
 # 推奨開発環境
 動作確認を含む開発は、[Android Studio](https://developer.android.com/studio?gclid=Cj0KCQiA3eGfBhCeARIsACpJNU-sGtOLFSI087ShZ_mygDp2e76nBRxhxVAspMJhwZcPzftDLaQV5jMaAo7SEALw_wcB&gclsrc=aw.ds)などのIDEの利用を推奨しています。ネイティブAndroidの開発が初めてのメンバーは、[こちら](https://developer.android.com/studio/install?gclid=Cj0KCQiA3eGfBhCeARIsACpJNU8G6U9CA7CfaoX5BdRdP5vrPkxYq3f_9KynYL4GsON0r-w1wcijWPAaAsJZEALw_wcB&gclsrc=aw.ds&hl=ja) を参考にインストールをしてください。
