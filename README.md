@@ -9,6 +9,9 @@ CIST:ComfortAble Toolkit(仮称) は、CIST生の学生生活をより便利に�
 ここでは、anndroid端末でのフロントエンドの構築を行います。
 バックエンドの開発は別のレポジトリで行います。
 
+#技術構成
+宣言的UIをサポートするを用いてUIの記述を行います。
+適宜、[公式ドキュメント](https://developer.android.com/jetpack/compose/documentation?hl=ja)や[公式サンプル](https://github.com/android/compose-samples)を参照して開発を進めましょう
 
 # 推奨開発環境
 動作確認を含む開発は、[Android Studio](https://developer.android.com/studio?gclid=Cj0KCQiA3eGfBhCeARIsACpJNU-sGtOLFSI087ShZ_mygDp2e76nBRxhxVAspMJhwZcPzftDLaQV5jMaAo7SEALw_wcB&gclsrc=aw.ds)などのIDEの利用を推奨しています。ネイティブAndroidの開発が初めてのメンバーは、[こちら](https://developer.android.com/studio/install?gclid=Cj0KCQiA3eGfBhCeARIsACpJNU8G6U9CA7CfaoX5BdRdP5vrPkxYq3f_9KynYL4GsON0r-w1wcijWPAaAsJZEALw_wcB&gclsrc=aw.ds&hl=ja) を参考にインストールをしてください。
