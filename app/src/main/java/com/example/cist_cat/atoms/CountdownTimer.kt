@@ -37,14 +37,14 @@ fun CountDownTimer(nextBusTime:LocalTime,onFinished: ()->Unit){
         Text(
             text = "${if(minutes<10) 0 else ""}$minutes:${if(seconds<10) 0 else ""}$seconds",
             style = MaterialTheme.typography.h1,
-            color = Color.Gray,
+            color = Color(0xff979494),
             fontWeight = FontWeight.Medium
         )
     }
 }
 
 @RequiresApi(Build.VERSION_CODES.O)
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun CountDownTimerPreview(){
     CountDownTimer(nextBusTime = LocalTime.now().plusMinutes(1)) {}
