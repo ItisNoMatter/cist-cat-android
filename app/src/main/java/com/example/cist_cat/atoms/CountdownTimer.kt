@@ -3,11 +3,11 @@ package com.example.cist_cat.atoms
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import kotlinx.coroutines.delay
 import java.time.Duration
@@ -15,44 +15,37 @@ import java.time.LocalTime
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun CountDownTimer(currentTime:LocalTime,nextBusTime:LocalTime){
-    Column {
-        val countDown = Duration.between(currentTime,nextBusTime)
-        val countDownMinute = countDown.toMinutes()
-        val countDownSeconds = (countDown.toMillis() / 1000 ) - countDownMinute*60
-        Text(text = "$currentTime")
-        Text(text = "$nextBusTime")
-        Text(text = "$countDownMinute")
-        Text(text= "$countDownSeconds")
-    }
-}
+fun CountDownTimer(nextBusTime:LocalTime,onFinished: ()->Unit){
+    var countDownDuration by remember { mutableStateOf(Duration.between(LocalTime.now(), nextBusTime)) }
 
-@Composable
-fun MyCountUpTimer(){
-    var count:Int by remember { mutableStateOf(0) }
-    var isRunning by remember { mutableStateOf(false) }
-    if (isRunning){
-        LaunchedEffect(Unit) {
-            while (true) {
-                delay(1000)
-                count++
+    LaunchedEffect(nextBusTime) {//引数が更新されたら初期化しなおす
+        countDownDuration = Duration.between(LocalTime.now(), nextBusTime)
+    }
+
+    LaunchedEffect(Unit){
+        while (true){
+            delay(1000)
+            if (countDownDuration.minusMillis(1000).isNegative){
+                onFinished()
             }
+            countDownDuration = countDownDuration.minusMillis(1000)//ここで再コンポーズが走る
         }
     }
     Column {
-        Text(text = count.toString(), style = MaterialTheme.typography.h1)
-        Button(
-            onClick ={isRunning = !isRunning},
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            if(isRunning) Text("pause")  else Text("start to count up")
-        }
+        val minutes = countDownDuration.toMinutes()
+        val seconds = (countDownDuration.toMillis() / 1000 ) - minutes*60
+        Text(
+            text = "${if(minutes<10) 0 else ""}$minutes:${if(seconds<10) 0 else ""}$seconds",
+            style = MaterialTheme.typography.h1,
+            color = Color.Gray,
+            fontWeight = FontWeight.Medium
+        )
     }
 }
 
-
+@RequiresApi(Build.VERSION_CODES.O)
 @Preview
 @Composable
-fun Prev(){
-    MyCountUpTimer()
+fun CountDownTimerPreview(){
+    CountDownTimer(nextBusTime = LocalTime.now().plusMinutes(1)) {}
 }
