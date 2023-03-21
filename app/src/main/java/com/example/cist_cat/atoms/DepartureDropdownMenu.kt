@@ -21,19 +21,21 @@ fun DepartureDropdownMenu() {
 
     Row(
         modifier = Modifier
-            .padding(32.dp)
-            .size(300.dp, 100.dp)
+            .padding(vertical = 24.dp)
+            .size(75.dp, 50.dp)
             .clip(RoundedCornerShape(12.dp))
-            .neumorphic(neuShape = Pressed.Rounded(12.dp))
+            .neumorphic(neuShape = Pressed.Rounded(10.dp))
             .padding(12.dp)
     )
     {
         IconButton(onClick = { expanded = true }) {
-            Text(text = "行き先")
+            Text(
+                text = "行き先",
+                )
         }
         DropdownMenu(
             modifier = Modifier
-                .neumorphic(neuShape = Pressed.Rounded(12.dp)),
+                .neumorphic(neuShape = Pressed.Rounded(10.dp)),
             expanded = expanded,
             onDismissRequest = { expanded = false },
 
