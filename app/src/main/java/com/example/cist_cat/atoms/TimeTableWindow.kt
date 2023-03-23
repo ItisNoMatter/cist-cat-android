@@ -29,7 +29,7 @@ val dummy:MutableList<BusList> = mutableListOf(
 )
 
 @Composable
-fun DirectionToggle() {
+fun TimeTableWindow() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -60,14 +60,14 @@ fun DirectionToggle() {
 
 @Preview(showBackground = true)
 @Composable
-fun TimeTableWindow() {
+fun TimeTableWindowPreview() {
     CISTCaTTheme {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            DirectionToggle()
+            TimeTableWindow()
         }
     }
 }
