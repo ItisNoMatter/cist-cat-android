@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.cist_cat.ui.theme.CISTCaTTheme
 
 @Composable
-private fun DirectionToggle(){
+fun DirectionToggle(){
     val outwardTrip = remember { mutableStateOf(true) }
     if(outwardTrip.value){
         Row{
