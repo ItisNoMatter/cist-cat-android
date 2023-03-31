@@ -33,7 +33,7 @@ fun TimeTableWindow() {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
-            .size(330.dp, 230.dp)
+            .fillMaxWidth()
             .clip(RoundedCornerShape(12.dp))
             .neumorphic(neuShape = Pressed.Rounded(12.dp))
             .padding(12.dp)
@@ -41,7 +41,6 @@ fun TimeTableWindow() {
     ){
         for (bus:BusList in dummy) {
             val busTime:String = bus.hour + ":" + bus.minute
-
                 Row (modifier = Modifier) {
                     for (i in 1..bus.remark) {
                         Text(
