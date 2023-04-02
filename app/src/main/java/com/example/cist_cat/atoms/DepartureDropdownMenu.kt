@@ -16,8 +16,10 @@ import me.nikhilchaudhari.library.shapes.Pressed
 
 
 @Composable
-fun DepartureDropdownMenu() {
+fun DepartureDropdownMenu(departure: String) {
+    val stop = listOf<String>("千歳","南千歳","研究棟","本部棟")
     var expanded by remember { mutableStateOf(false) }
+
 
     Row(
         modifier = Modifier
@@ -30,7 +32,7 @@ fun DepartureDropdownMenu() {
     {
         IconButton(onClick = { expanded = true }) {
             Text(
-                text = "行き先",
+                text = departure,
                 )
         }
         DropdownMenu(
@@ -41,28 +43,25 @@ fun DepartureDropdownMenu() {
 
             )
         {
-
             Column {
-                DropdownMenuItem(onClick = { /*TODO*/ }) {
-                    Text(text = "千歳駅")
-                }
-                Divider()
-                DropdownMenuItem(onClick = { /*TODO*/ }) {
-                    Text(text = "南千歳駅")
-                }
-                Divider()
-                DropdownMenuItem(onClick = { /*TODO*/ }) {
-                    Text(text = "研究棟")
+                for (i in 0..3) {
+                    DropdownMenuItem(onClick = {
+
+                    }) {
+                        Text( text = stop[i] )
+                    }
+                    Divider()
                 }
             }
         }
     }
 }
 
+
 @Composable
 @Preview
 fun DepartureDropdownMenuPreview() {
-    DepartureDropdownMenu()
+    DepartureDropdownMenu(departure = "行き先")
 }
 
 
