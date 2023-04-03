@@ -16,10 +16,10 @@ import me.nikhilchaudhari.library.shapes.Pressed
 
 
 @Composable
-fun DepartureDropdownMenu(departure: String) {
+fun DepartureDropdownMenu() {
     val stop = listOf<String>("千歳","南千歳","研究棟","本部棟")
     var expanded by remember { mutableStateOf(false) }
-
+    var departure by remember { mutableStateOf("出発") }
 
     Row(
         modifier = Modifier
@@ -40,13 +40,13 @@ fun DepartureDropdownMenu(departure: String) {
                 .neumorphic(neuShape = Pressed.Rounded(10.dp)),
             expanded = expanded,
             onDismissRequest = { expanded = false },
-
             )
         {
             Column {
                 for (i in 0..3) {
                     DropdownMenuItem(onClick = {
-
+                        departure = stop[i]
+                        expanded = false
                     }) {
                         Text( text = stop[i] )
                     }
@@ -61,7 +61,7 @@ fun DepartureDropdownMenu(departure: String) {
 @Composable
 @Preview
 fun DepartureDropdownMenuPreview() {
-    DepartureDropdownMenu(departure = "行き先")
+    DepartureDropdownMenu()
 }
 
 
