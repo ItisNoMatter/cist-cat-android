@@ -30,7 +30,9 @@ fun DepartureDropdownMenu() {
             .padding(12.dp)
     )
     {
-        IconButton(onClick = { expanded = true }) {
+        IconButton(
+            onClick = { expanded = true }
+        ) {
             Text(
                 text = departure,
                 )
