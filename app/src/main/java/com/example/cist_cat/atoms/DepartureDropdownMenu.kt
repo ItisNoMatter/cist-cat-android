@@ -23,11 +23,11 @@ fun DepartureDropdownMenu() {
 
     Row(
         modifier = Modifier
-            .padding(vertical = 24.dp)
-            .size(75.dp, 50.dp)
+            .padding(vertical = 10.dp)
+            .size(62.5.dp, 36.dp)
             .clip(RoundedCornerShape(12.dp))
             .neumorphic(neuShape = Pressed.Rounded(10.dp))
-            .padding(12.dp)
+            .padding(6.dp)
     )
     {
         IconButton(
@@ -39,6 +39,7 @@ fun DepartureDropdownMenu() {
         }
         DropdownMenu(
             modifier = Modifier
+                .size(85.dp, 210.dp)
                 .neumorphic(neuShape = Pressed.Rounded(10.dp)),
             expanded = expanded,
             onDismissRequest = { expanded = false },
@@ -46,10 +47,12 @@ fun DepartureDropdownMenu() {
         {
             Column {
                 for (i in 0..3) {
-                    DropdownMenuItem(onClick = {
+                    DropdownMenuItem(
+                        onClick = {
                         departure = stop[i]
                         expanded = false
-                    }) {
+                        }
+                    ) {
                         Text( text = stop[i] )
                     }
                     Divider()
